@@ -1,5 +1,6 @@
 import { Actor, Vector, SpriteSheet, Animation, range, Engine, Label, Color, Font, vec, FontUnit, Input } from "excalibur"
 import { Resources, ResourceLoader } from '../resources.js'
+import { Flower } from "./flower.js"
 
 export class Blocks extends Actor {
 
@@ -7,7 +8,7 @@ export class Blocks extends Actor {
 
     label
 
-    plant
+    Flower
 
 
     constructor(points) {
@@ -22,12 +23,12 @@ export class Blocks extends Actor {
             grid: { rows: 1, columns: 5, spriteWidth: 85, spriteHeight: 100 },
         })
 
-        const idle = Animation.fromSpriteSheet(sheetBlock, range(1, 5), 100) //idle animatie
+        const idle = Animation.fromSpriteSheet(sheetBlock, range(1, 5), 120) //idle animatie
 
         this.graphics.add("idle", idle);
         this.graphics.use(idle);
 
-        // this.plant =
+
 
     }
 
@@ -37,20 +38,24 @@ export class Blocks extends Actor {
 
         this.damage = this.points
 
-        console.log(this.points)
 
         this.engine = engine
         this.graphics.use("idle")
 
         this.pos = new Vector(
-            Math.random() * engine.drawWidth,
-            Math.random() * engine.drawHeight);
+            Math.random() * 900,
+            Math.random() * 500);
 
         this.vel = new Vector(Math.random() * 400 - 200, Math.random() * 400 - 200);
 
 
+        this.Flower = new Flower()
+
+        this.addChild(this.Flower)
 
         this.removeBlock()
+
+
 
 
     }

@@ -1,25 +1,25 @@
 import { Actor, Vector, SpriteSheet, Animation, range, CollisionType } from "excalibur"
-import { Resources, ResourceLoader } from './resources.js'
-import { Player } from "./player.js";
+import { Resources, ResourceLoader } from '../resources.js'
+import { Leaves } from "./leaves.js"
+
 
 export class Flower extends Actor {
 
-    nummer
 
     constructor() {
 
         
         super({ width: 70, height: 70 })
 
-        const idleSheet = SpriteSheet.fromImageSource({
-            image: Resources.Flower,
+        const flowerSheet = SpriteSheet.fromImageSource({
+            image: Resources.FlowerN,
             grid: { rows: 1, columns: 5, spriteWidth: 85, spriteHeight: 100 },
         })
 
         // test of alle sprites er zijn
-        console.log(idleSheet.sprites);
+        console.log(flowerSheet.sprites);
 
-        const idle = Animation.fromSpriteSheet(idleSheet, range(1, 5), 120) //idle animatie
+        const idle = Animation.fromSpriteSheet(flowerSheet, range(1, 5), 120) //idle animatie
 
         this.graphics.add("idle", idle);
         this.graphics.use(idle);
@@ -28,35 +28,12 @@ export class Flower extends Actor {
 
     onInitialize(engine) {
 
-        this.nummer = 0
 
-        // this.anchor = new Vector(0, 0)
-        this.pos = new Vector(1000, 550)
-        this.vel = new Vector(-200, 0)
 
-        this.on('collisionstart', (event) => this.hitSomething(event))
+        this.leaves = new Leaves()
+
+        this.addChild(this.leaves)
 
     }
-
-    onPostUpdate(engine) {
-        this.graphics.use("idle")
-
-        if (this.pos.x < 0) {
-            this.pos = new Vector(1000, 550)
-        }
-    }
-
-    hitSomething(event){
-
-        if(event.other instanceof Player){
-            this.nummer ++
-            console.log(`You touch a stone voor ${this.nummer} times`)
-        }
-        if(this.nummer >= 5){
-            console.log(`You are dead`)
-        }
-    }
-
-
 
 }
