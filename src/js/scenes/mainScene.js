@@ -2,48 +2,93 @@ import { Scene, Vector, Label, Color, Font, vec, FontUnit, Timer } from "excalib
 import { Player } from '../actor/player'
 import { Background } from '../actor/background'
 import { Blocks } from "../actor/blocks"
-import { StartIcon } from '../actor/iconStart'
-import { EndIcon } from "../actor/iconEnd"
+// import { StartIcon } from '../actor/iconStart'
+// import { EndIcon } from "../actor/iconEnd"
 // import { Flower } from './flower'
 
 export class MainScene extends Scene {
 
-    constructor() {
-        super()
-        this.label = new Label({
-            text: "Main Game",
-            pos: new Vector(100, 100),
-            font: new Font({
-              family: "arial",
-              size: 30,
-              unit: FontUnit.Px,
-              color: Color.White,
-            }),
-          });
-          this.add(this.label);
+  engine
 
-    }
+  time = 0
+  timeText
+
+  points
+
+  constructor() {
+    super()
 
 
-    onInitialize(engine) {
+  }
 
 
-    }
+  onInitialize(engine) {
+    this.engine = engine
 
-    onActivate(engine){
-      const background = new Background()
-      this.add(background)
+    const background = new Background()
+    this.add(background)
 
-      const block = new Blocks()
-      this.add(block)
+    console.log("the game over scene is created, the MainScrene")
 
-      console.log("the game over scene is created, the MainScrene")
+    // const button = new EndIcon('endGame')
+    // this.add(button)
 
-      const button = new EndIcon('endGame')
-      this.add(button)
-    }
+    this.scoreText = new Label({
+      text: 'Start!',
+      font: new Font({
+        unit: FontUnit.Px,
+        family: 'impact',
+        size: 28,
+        color: Color.White,
+      }),
+      pos: new Vector(400, 100)
+    })
+    this.add(this.scoreText)
+
+
+
+    const timer2 = new Timer({
+      fcn: () => this.updateScore(),
+      repeats: true,
+      interval: 1000,
+    })
+    this.add(timer2)
+
+    timer2.start()
+
+
+    this.points = Math.round( Math.random() * 3 + 1)
+    const block = new Blocks(this.points)
+    this.add(block)
+  //   for (let i = 0; i < Math.round(Math.random() * 10 + 1); i++){
+
+
+
+  // }
+
+
+
+
+  }
+
+  onActivate(engine) {
 
     
+  }
+
+
+  updateScore() {
+    this.time++
+    let data = {
+      score: this.time,
+      life: this.points
+    }
+    this.scoreText.text = `Time passed: ${this.time}`
+    localStorage.setItem("score", JSON.stringify(data))
+
+    this.engine.time = this.time
+  }
+
 
 }
 

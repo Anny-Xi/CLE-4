@@ -15,7 +15,7 @@ export class EndIcon extends Icon {
         this.engine = engine
         const button = Resources.EndIcon.toSprite()
         this.graphics.use(button)
-        this.pos = new Vector (500,400)
+        this.pos = new Vector (200,200)
         this.scale = new Vector(0.5,0.5)
 
         //load Main game scene

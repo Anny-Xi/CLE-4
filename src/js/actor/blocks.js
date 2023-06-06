@@ -1,16 +1,20 @@
-import { Actor, Vector, SpriteSheet, Animation, range, Engine } from "excalibur"
+import { Actor, Vector, SpriteSheet, Animation, range, Engine, Label, Color, Font, vec, FontUnit, Input } from "excalibur"
 import { Resources, ResourceLoader } from '../resources.js'
 import { Player } from "./player.js";
 
 export class Blocks extends Actor {
 
-    damage = 50
+    damage
+
+    label
 
 
-    constructor() {
+    constructor(points) {
 
 
         super({ width: 70, height: 70 })
+
+        this.points = points
 
         const idleSheet = SpriteSheet.fromImageSource({
             image: Resources.Player,
@@ -28,6 +32,13 @@ export class Blocks extends Actor {
     }
 
     onInitialize(engine) {
+
+        
+
+        this.damage = this.points
+
+        console.log(this.points)
+
         this.engine = engine
         this.graphics.use("idle")
 
@@ -38,14 +49,18 @@ export class Blocks extends Actor {
         this.vel = new Vector(Math.random() * 400 - 200, Math.random() * 400 - 200);
 
 
+
+
+
         this.on("pointerdown", (event) => {
-            this.damage = this.damage - 50
-            
+            this.damage = this.damage - 1
+
 
             if (this.damage <= 0) {
                 console.log("you remove a bumping")
                 this.kill()
-                // this.engine.updateScore()
+
+                this.engine.goToScene('endGame')
 
             }
         })
@@ -61,9 +76,7 @@ export class Blocks extends Actor {
             this.vel.y = -this.vel.y;
         }
 
-
     }
-
 
 
 }
