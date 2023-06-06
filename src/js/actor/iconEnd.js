@@ -6,22 +6,29 @@ export class EndIcon extends Icon {
     
     constructor(nameScene) {
 
-        super()
+        super({width: Resources.Starticon.width, height: Resources.Starticon.height})
 
         this.nameScene = nameScene
     }
 
     onInitialize(engine) {
         this.engine = engine
-        const button = Resources.EndIcon.toSprite()
-        this.graphics.use(button)
-        this.pos = new Vector (200,200)
+
+        this.pos = new Vector (500,600)
         this.scale = new Vector(0.5,0.5)
 
         //load Main game scene
-        this.changeScene()
+        // this.changeScene(this.nameScene)
+        // location.reload();
+        this.onClick()
 
 
+    }
+
+    onClick(){
+        this.on("pointerdown", (event) => {
+            location.reload();
+        })
 
     }
 

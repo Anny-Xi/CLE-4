@@ -1,7 +1,7 @@
 import { Scene, Vector, Label, Color, Font, vec, FontUnit, Input } from "excalibur"
 import { Background } from '../actor/background'
 import { MainScene } from "./mainScene";
-import { StartIcon } from '../actor/iconStart'
+import { EndIcon } from "../actor/iconEnd";
 
 export class EndScene extends Scene {
 
@@ -13,8 +13,6 @@ export class EndScene extends Scene {
 
   constructor() {
     super()
-
-
   }
 
 
@@ -22,6 +20,17 @@ export class EndScene extends Scene {
 
     const background = new Background()
     this.add(background)
+
+    const button = new EndIcon('startGame')
+    this.add(button)
+
+
+
+
+  }
+
+  onActivate(engine) {
+    console.log("the game scene is created, end")
 
     const previous = JSON.parse(localStorage.getItem("score"))
     if (previous) { console.log(previous.score) }
@@ -49,11 +58,6 @@ export class EndScene extends Scene {
       pos: new Vector(200, 400)
   })
   this.add(this.timeText)
-
-  }
-
-  onActivate(engine) {
-    console.log("the game scene is created, end")
 
   }
 

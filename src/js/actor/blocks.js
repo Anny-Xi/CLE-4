@@ -22,7 +22,7 @@ export class Blocks extends Actor {
         })
 
         // test of alle sprites er zijn
-        console.log(idleSheet.sprites);
+        // console.log(idleSheet.sprites);
 
         const idle = Animation.fromSpriteSheet(idleSheet, range(1, 5), 100) //idle animatie
 
@@ -50,8 +50,35 @@ export class Blocks extends Actor {
 
 
 
+        this.removeBlock()
+
+        // this.on("pointerdown", (event) => {
+        //     this.damage = this.damage - 1
 
 
+        //     if (this.damage <= 0) {
+        //         console.log("you remove a bumping")
+        //         this.kill()
+
+        //         this.engine.goToScene('endGame')
+
+        //     }
+        // })
+
+    }
+
+    onPostUpdate(engine) {
+
+        if (this.pos.x < 0 || this.pos.x + this.width > 1000) {
+            this.vel.x = -this.vel.x;
+        }
+        if (this.pos.y < 0 || this.pos.y + this.height > 700) {
+            this.vel.y = -this.vel.y;
+        }
+
+    }
+
+    removeBlock(){
         this.on("pointerdown", (event) => {
             this.damage = this.damage - 1
 
@@ -64,17 +91,6 @@ export class Blocks extends Actor {
 
             }
         })
-
-    }
-
-    onPostUpdate(engine) {
-
-        if (this.pos.x < 0 || this.pos.x + this.width > 1000) {
-            this.vel.x = -this.vel.x;
-        }
-        if (this.pos.y < 0 || this.pos.y + this.height > 700) {
-            this.vel.y = -this.vel.y;
-        }
 
     }
 

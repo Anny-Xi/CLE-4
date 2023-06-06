@@ -33,6 +33,20 @@ export class MainScene extends Scene {
     // const button = new EndIcon('endGame')
     // this.add(button)
 
+
+
+
+
+
+
+
+    // this.points = Math.round( Math.random() * 3 + 1)
+    // const block = new Blocks(this.points)
+    // this.add(block)
+
+  }
+
+  onActivate(engine) {
     this.scoreText = new Label({
       text: 'Start!',
       font: new Font({
@@ -44,8 +58,7 @@ export class MainScene extends Scene {
       pos: new Vector(400, 100)
     })
     this.add(this.scoreText)
-
-
+    
 
     const timer2 = new Timer({
       fcn: () => this.updateScore(),
@@ -56,23 +69,9 @@ export class MainScene extends Scene {
 
     timer2.start()
 
-
     this.points = Math.round( Math.random() * 3 + 1)
     const block = new Blocks(this.points)
     this.add(block)
-  //   for (let i = 0; i < Math.round(Math.random() * 10 + 1); i++){
-
-
-
-  // }
-
-
-
-
-  }
-
-  onActivate(engine) {
-
     
   }
 

@@ -24,14 +24,14 @@ export class StartScene extends Scene {
 
 
     onInitialize(engine) {
-
+      console.log("the game scene is created, start")
+      const button = new StartIcon('mainGame')
+      this.add(button)
 
     }
 
     onActivate(engine){
-      console.log("the game scene is created, start")
-      const button = new StartIcon('mainGame')
-      this.add(button)
+
     }
     
 

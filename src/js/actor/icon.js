@@ -6,6 +6,9 @@ export class Icon extends Actor {
     constructor() {
 
         super({width: Resources.Starticon.width, height: Resources.Starticon.height})
+        
+        const button = Resources.Starticon.toSprite()
+        this.graphics.use(button)
 
         
 
@@ -14,8 +17,7 @@ export class Icon extends Actor {
 
     onInitialize(engine) {
         this.engine = engine
-        const button = Resources.Starticon.toSprite()
-        this.graphics.use(button)
+
         this.pos = new Vector (500,400)
 
         this.changeScene()
