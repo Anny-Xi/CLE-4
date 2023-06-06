@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Physics, Engine, Vector, Scene } from "excalibur"
+import { Engine, Scene } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { StartScene } from './scenes/start'
 import { MainScene } from './scenes/mainScene'
@@ -22,7 +22,7 @@ export class Game extends Engine {
 
     startGame() {
         console.log("start de game!")
-        this.showDebug(true)
+        // this.showDebug(true)
     
         this.addScene('startGame', new StartScene())
         this.addScene('mainGame', new MainScene())

@@ -7,6 +7,7 @@ import flowerR from "../images/flower_leaveR.png"
 import flowerL from "../images/flower_leaveL.png"
 import flowerN from "../images/flower_leaveN.png"
 import starticon from "../images/startIcon.png"
+import startScene from "../images/startScene.jpg"
 
 const Resources = {
     Player: new ImageSource(player),
@@ -16,7 +17,8 @@ const Resources = {
     FlowerN: new ImageSource(flowerN),
     Background: new ImageSource(backgroundImage),
     Floor: new ImageSource(floor),
-    Starticon: new ImageSource(starticon)
+    Starticon: new ImageSource(starticon),
+    StartScene: new ImageSource(startScene)
 }
 const ResourceLoader = new Loader([
     Resources.Player, 
@@ -26,7 +28,8 @@ const ResourceLoader = new Loader([
     Resources.FlowerN,
     Resources.Background, 
     Resources.Floor,
-    Resources.Starticon
+    Resources.Starticon,
+    Resources.StartScene
 ])
 
 export { Resources, ResourceLoader }

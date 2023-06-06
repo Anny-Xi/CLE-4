@@ -6,7 +6,7 @@ import { Leaves } from "./leaves.js"
 export class Flower extends Actor {
 
 
-    constructor() {
+    constructor(points) {
 
         
         super({ width: 70, height: 70 })
@@ -24,13 +24,15 @@ export class Flower extends Actor {
         this.graphics.add("idle", idle);
         this.graphics.use(idle);
 
+        this.points = points
+
     }
 
     onInitialize(engine) {
 
 
 
-        this.leaves = new Leaves()
+        this.leaves = new Leaves(this.points)
 
         this.addChild(this.leaves)
 

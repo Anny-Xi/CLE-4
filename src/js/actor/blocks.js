@@ -46,10 +46,10 @@ export class Blocks extends Actor {
             Math.random() * 900,
             Math.random() * 500);
 
-        this.vel = new Vector(Math.random() * 400 - 200, Math.random() * 400 - 200);
+        this.vel = new Vector(Math.random() * 400 - 150, Math.random() * 400 - 100);
 
 
-        this.Flower = new Flower()
+        this.Flower = new Flower(this.points)
 
         this.addChild(this.Flower)
 

@@ -1,6 +1,5 @@
 import { Scene, Vector, Label, Color, Font, vec, FontUnit, Input} from "excalibur"
-import { Background } from '../actor/background'
-import { MainScene } from "./mainScene";
+import { StartGuide } from "../actor/startGuide"
 import { StartIcon } from '../actor/iconStart'
 
 export class StartScene extends Scene {
@@ -27,6 +26,9 @@ export class StartScene extends Scene {
       console.log("the game scene is created, start")
       const button = new StartIcon('mainGame')
       this.add(button)
+
+      const guide = new StartGuide()
+      this.add(guide)
 
     }
 

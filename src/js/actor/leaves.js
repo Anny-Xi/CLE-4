@@ -4,10 +4,9 @@ import { Resources, ResourceLoader } from '../resources.js'
 
 export class Leaves extends Actor {
 
-    nummer
+    points
 
-    constructor() {
-
+    constructor(points) {
 
         super({ width: 70, height: 70 })
 
@@ -41,16 +40,16 @@ export class Leaves extends Actor {
         this.graphics.add("idleL", this.idleL);
         this.graphics.add("idleF", this.idleF);
 
-        this.random = Math.round(Math.random() * 3)
-        console.log(this.random)
-        switch (this.random) {
-            case 0:
+        this.points = points
+        console.log(this.points)
+        switch (this.points) {
+            case 1:
                 this.graphics.use(idleL);
                 break;
-            case 1:
+            case 2:
                 this.graphics.use(idleR);
                 break;
-            case 2:
+            case 3:
                 this.graphics.use(idleF);
         }
 

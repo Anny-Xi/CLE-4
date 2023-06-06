@@ -14,7 +14,8 @@ export class StartIcon extends Icon {
     onInitialize(engine) {
         this.engine = engine
 
-        this.pos = new Vector (500,400)
+        this.pos = new Vector (700,600)
+        this.scale = new Vector(0.4,0.4)
 
         //load Main game scene
         this.changeScene()
