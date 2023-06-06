@@ -13,8 +13,7 @@ export class StartIcon extends Icon {
 
     onInitialize(engine) {
         this.engine = engine
-        const button = Resources.Starticon.toSprite()
-        this.graphics.use(button)
+
         this.pos = new Vector (500,400)
 
         //load Main game scene

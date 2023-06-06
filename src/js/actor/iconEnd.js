@@ -17,9 +17,7 @@ export class EndIcon extends Icon {
         this.pos = new Vector (500,600)
         this.scale = new Vector(0.5,0.5)
 
-        //load Main game scene
-        // this.changeScene(this.nameScene)
-        // location.reload();
+
         this.onClick()
 
 

@@ -1,5 +1,5 @@
 import { Scene, Vector, Label, Color, Font, vec, FontUnit, Timer } from "excalibur"
-import { Player } from '../actor/player'
+
 import { Background } from '../actor/background'
 import { Blocks } from "../actor/blocks"
 // import { StartIcon } from '../actor/iconStart'
