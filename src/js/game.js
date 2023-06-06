@@ -27,20 +27,20 @@ export class Game extends Engine {
         console.log("start de game!")
         this.showDebug(true)
         
-        this.goToMainScene()
+        // this.goToMainScene()
 
 
 
     }
 
-    goToMainScene(){
+    // goToMainScene(){
 
-        const scene = new MainScene (this.player)
-        // this.add(scene)
-        this.addScene(scene)
-        this.goToScene(scene)
+    //     const scene = new MainScene (this.player)
+    //     // this.add(scene)
+    //     this.addScene(scene)
+    //     this.goToScene(scene)
 
-    }
+    // }
 }
 
 new Game()
