@@ -1,17 +1,15 @@
-import { Scene, Vector, Label, Color, Font, vec, FontUnit, Timer } from "excalibur"
-import { Player } from '../actor/player'
+import { Scene, Vector, Label, Color, Font, vec, FontUnit, Input} from "excalibur"
 import { Background } from '../actor/background'
-import { Blocks } from "../actor/blocks"
-import { Floor} from '../actor/ground'
+import { MainScene } from "./mainScene";
 // import { Flower } from './flower'
 
-export class MainScene extends Scene {
+export class StartScene extends Scene {
 
     constructor() {
         super()
         this.label = new Label({
-            text: "Main Game",
-            pos: new Vector(100, 100),
+            text: "Welkom to the game, click somewhere to start",
+            pos: new Vector(0 , 350),
             font: new Font({
               family: "arial",
               size: 30,
@@ -29,14 +27,20 @@ export class MainScene extends Scene {
         const background = new Background()
         this.add(background)
 
-        const block = new Blocks()
-        this.add(block)
+        engine.input.pointers.on("down", this.mainGame())
 
-        console.log("the game over scene is created, the MainScrene")
+
+        console.log("the game over scene is created, the start")
 
 
     }
     
+    mainGame(){
+
+      this.addScene('mainGame', new MainScene())
+      this.goToScene('mainGame')
+
+    }
 
 }
 

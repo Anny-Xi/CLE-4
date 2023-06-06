@@ -1,4 +1,4 @@
-import { Actor, Vector, SpriteSheet, Animation, range, Input, Collider, CollisionType } from "excalibur"
+import { Actor, Vector, SpriteSheet, Animation, range, Input } from "excalibur"
 import { Resources, ResourceLoader } from '../resources.js'
 
 export class Player extends Actor {
@@ -16,8 +16,8 @@ export class Player extends Actor {
             grid: { rows: 1, columns: 5, spriteWidth: 85, spriteHeight: 100 },
         })
 
-        // test of alle sprites er zijn
-        console.log(idleSheet.sprites);
+    // test of alle sprites er zijn
+        // console.log(idleSheet.sprites);
 
         const idle = Animation.fromSpriteSheet(idleSheet, range(1, 5), 70) //idle animatie
 
@@ -32,7 +32,7 @@ export class Player extends Actor {
         this.pos = new Vector(100, 200)
         this.vel = new Vector(0, 0)
 
-        this.body.collisionType = CollisionType.Active
+        // this.body.collisionType = CollisionType.Active
         this.body.useGravity = true
         this.body.friction = .99
 
@@ -44,23 +44,27 @@ export class Player extends Actor {
 
     onPreUpdate(engine) {
 
+        // console.log(collisionString)
+
         this.vel.x = 0;
 
-        if (engine.input.keyboard.isHeld(Input.Keys.Space)) {
+        if (engine.input.keyboard.isHeld(Input.Keys.Space) && this.onGround) {
             this.vel.y = -400;
+            this.onGround = false;
         }
     }
 
     //No dobbule jump
-    collisionCheck(collisionEvent, collisionString){
-        console.log(collisionEvent)
-        if(collisionString == 'start'){
-            this.onGround = true
-        }
-        else if(collisionString == 'end'){
-            this.onGround = false
-        }
-    }
+    // collisionCheck(collisionString){
+
+
+    //     // if(collisionString == 'start'){
+    //     //     this.onGround = true
+    //     // }
+    //     // else if(collisionString == 'end'){
+    //     //     this.onGround = false
+    //     // }
+    // }
     
 
     //reset posistion

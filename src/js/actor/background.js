@@ -33,16 +33,16 @@ export class Background extends Actor {
         this.graphics.add(group) 
 
         this.pos = new Vector(0, 0)
-        this.vel = new Vector(-90, 0)
+        // this.vel = new Vector(-90, 0)
 
     }
 
-    onPostUpdate(engine, delta) {
+    // onPostUpdate(engine, delta) {
         
-        //endless loop for background. 
+    //     //endless loop for background. 
 
-        if (this.pos.x < -1000) {
-            this.pos = new Vector(0, 0)
-        }
-    }
+    //     if (this.pos.x < -1000) {
+    //         this.pos = new Vector(0, 0)
+    //     }
+    // }
 }
