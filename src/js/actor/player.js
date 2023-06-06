@@ -1,4 +1,4 @@
-import { Actor, Vector, SpriteSheet, Animation, range, Input, Collider, CollisionType,collision } from "excalibur"
+import { Actor, Vector, SpriteSheet, Animation, range, Input, Collider, CollisionType } from "excalibur"
 import { Resources, ResourceLoader } from '../resources.js'
 
 export class Player extends Actor {

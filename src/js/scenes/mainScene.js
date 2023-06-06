@@ -1,24 +1,25 @@
-// import { Actor, Vector } from "excalibur"
+import { Scene } from "excalibur"
 import { Player } from '../actor/player'
+import { Background } from '../actor/background'
 // import { Blocks } from './blocks'
 import { Floor} from '../actor/ground'
 // import { Flower } from './flower'
 
 export class MainScene extends Scene {
 
-    constructor(player) {
+    constructor() {
         super()
-        this.label = new Label({
-            text: "Main Game",
-            pos: new Vector(100, 100),
-            font: new Font({
-              family: "arial",
-              size: 30,
-              unit: FontUnit.Px,
-              color: Color.White,
-            }),
-          });
-          this.add(this.label);
+        // this.label = new Label({
+        //     text: "Main Game",
+        //     pos: new Vector(100, 100),
+        //     font: new Font({
+        //       family: "arial",
+        //       size: 30,
+        //       unit: FontUnit.Px,
+        //       color: Color.White,
+        //     }),
+        //   });
+        //   this.add(this.label);
     }
 
 
@@ -32,6 +33,8 @@ export class MainScene extends Scene {
 
         const ground = new Floor()
         this.add(ground)
+
+        console.log("the game over scene is created, the MainScrene")
 
     }
     

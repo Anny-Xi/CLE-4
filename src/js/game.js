@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Actor, Engine, Vector } from "excalibur"
+import { Physics, Engine, Vector } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { MainScene } from './scenes/mainScene'
 
@@ -26,21 +26,23 @@ export class Game extends Engine {
     startGame() {
         console.log("start de game!")
         this.showDebug(true)
-        
-        // this.goToMainScene()
 
+        
+        
+    
+        this.addScene('mainScene', new MainScene())
+        this.goToScene('mainScene')
 
 
     }
 
-    // goToMainScene(){
+    goToMainScene(){
 
-    //     const scene = new MainScene (this.player)
-    //     // this.add(scene)
-    //     this.addScene(scene)
-    //     this.goToScene(scene)
+        const scene = new MainScene ()
+        // this.add(scene)
 
-    // }
+
+    }
 }
 
 new Game()
