@@ -18,12 +18,6 @@ export class Icon extends Actor {
     onInitialize(engine) {
         this.engine = engine
 
-        this.pos = new Vector (500,400)
-
-        this.changeScene()
-
-
-
     }
 
     changeScene(engine){
@@ -31,6 +25,13 @@ export class Icon extends Actor {
         this.on("pointerdown", (event) => {
             console.log("You click on something")
             this.engine.goToScene(this.nameScene)
+        })
+
+    }
+
+    reloadPage(){
+        this.on("pointerdown", (event) => {
+            location.reload();
         })
 
     }

@@ -14,7 +14,7 @@ export class Blocks extends Actor {
     constructor(points) {
 
 
-        super({ width: 70, height: 70 })
+        super({ width: 85, height: 90 })
 
         this.points = points
 

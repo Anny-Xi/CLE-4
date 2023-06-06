@@ -18,17 +18,11 @@ export class EndIcon extends Icon {
         this.scale = new Vector(0.5,0.5)
 
 
-        this.onClick()
+        this.reloadPage()
 
 
     }
 
-    onClick(){
-        this.on("pointerdown", (event) => {
-            location.reload();
-        })
-
-    }
 
 
 }
