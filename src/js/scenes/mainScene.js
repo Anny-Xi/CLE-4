@@ -2,7 +2,8 @@ import { Scene, Vector, Label, Color, Font, vec, FontUnit, Timer } from "excalib
 import { Player } from '../actor/player'
 import { Background } from '../actor/background'
 import { Blocks } from "../actor/blocks"
-import { Floor} from '../actor/ground'
+import { StartIcon } from '../actor/iconStart'
+import { EndIcon } from "../actor/iconEnd"
 // import { Flower } from './flower'
 
 export class MainScene extends Scene {
@@ -26,16 +27,22 @@ export class MainScene extends Scene {
 
     onInitialize(engine) {
 
-        const background = new Background()
-        this.add(background)
-
-        const block = new Blocks()
-        this.add(block)
-
-        console.log("the game over scene is created, the MainScrene")
-
 
     }
+
+    onActivate(engine){
+      const background = new Background()
+      this.add(background)
+
+      const block = new Blocks()
+      this.add(block)
+
+      console.log("the game over scene is created, the MainScrene")
+
+      const button = new EndIcon('endGame')
+      this.add(button)
+    }
+
     
 
 }

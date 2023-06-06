@@ -1,12 +1,12 @@
 import '../css/style.css'
-import { Physics, Engine, Vector } from "excalibur"
+import { Physics, Engine, Vector, Scene } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
+import { StartScene } from './scenes/start'
 import { MainScene } from './scenes/mainScene'
+import { EndScene } from './scenes/endScene'
 
 export class Game extends Engine {
 
-    player
-    timer
 
     constructor() {
         super({ width: 1000, 
@@ -15,9 +15,6 @@ export class Game extends Engine {
             antialiasing: false 
         })
 
-        //use arcade physics in the game
-        Physics.useArcadePhysics()
-        Physics.gravity = new Vector(0,900)
 
         this.start(ResourceLoader).then(() => this.startGame())
 
@@ -26,23 +23,17 @@ export class Game extends Engine {
     startGame() {
         console.log("start de game!")
         this.showDebug(true)
-
-        
-        
     
-        this.addScene('mainScene', new MainScene())
-        this.goToScene('mainScene')
+        this.addScene('startGame', new StartScene())
+        this.addScene('mainGame', new MainScene())
+        this.addScene('endGame', new EndScene())
+
+        this.goToScene('startGame')
 
 
     }
 
-    goToMainScene(){
 
-        const scene = new MainScene ()
-        // this.add(scene)
-
-
-    }
 }
 
 new Game()

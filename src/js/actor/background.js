@@ -7,7 +7,7 @@ export class Background extends Actor {
 
     constructor() {
 
-        super({ width: Resources.Background.width, height: Resources.Background.height, z:-10 })
+        super({ z:-10 })
 
  
     }
@@ -16,21 +16,21 @@ export class Background extends Actor {
 
         const background = Resources.Background.toSprite()
 
-        const group = new GraphicsGroup({
-            members: [
-                {
-                    graphic: background,
-                    pos: new Vector(0, 0),
-                },
-                {
-                    graphic: background,
-                    pos: new Vector(background.width, 0),
-                }
-            ]
-        })
+        // const group = new GraphicsGroup({
+        //     members: [
+        //         {
+        //             graphic: background,
+        //             pos: new Vector(0, 0),
+        //         },
+        //         {
+        //             graphic: background,
+        //             pos: new Vector(background.width, 0),
+        //         }
+        //     ]
+        // })
 
         this.graphics.anchor = new Vector(0,0)
-        this.graphics.add(group) 
+        this.graphics.add(background) 
 
         this.pos = new Vector(0, 0)
         // this.vel = new Vector(-90, 0)

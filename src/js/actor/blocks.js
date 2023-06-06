@@ -39,7 +39,7 @@ export class Blocks extends Actor {
 
 
         this.on("pointerdown", (event) => {
-            this.damage = this.damage - 50;
+            this.damage = this.damage - 50
             
 
             if (this.damage <= 0) {
@@ -48,7 +48,7 @@ export class Blocks extends Actor {
                 // this.engine.updateScore()
 
             }
-        });
+        })
 
     }
 
@@ -62,16 +62,6 @@ export class Blocks extends Actor {
         }
 
 
-    }
-
-    hitSomething(event) {
-        if (event.other instanceof Player) {
-            this.nummer++
-            console.log(`You touch a stone voor ${this.nummer} times`)
-        }
-        if (this.nummer >= 5) {
-            console.log(`You are dead`)
-        }
     }
 
 
